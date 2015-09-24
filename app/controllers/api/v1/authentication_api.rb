@@ -15,6 +15,7 @@ module API::V1
       	user = User.find_by(email: email.downcase)
 
       	if user.present? && password.present?
+          Rails.logger.info "-------------#{params}"
 	      	unless user.valid_password?(password)
 	          {status: false, message: "Invalid Email or Password."}
 	        else
@@ -36,6 +37,7 @@ module API::V1
       end
 
       post 'signup' do
+        Rails.logger.info "-------------#{params}"
       	@user = User.create(name: params[:user][:name], email: params[:user][:email],
       	 password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
       	if @user.save
