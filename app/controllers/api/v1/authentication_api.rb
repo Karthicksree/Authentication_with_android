@@ -41,7 +41,7 @@ module API::V1
       	@user = User.create(name: params[:user][:name], email: params[:user][:email],
       	 password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
       	if @user.save
-        	{status: true, message: "User created Successfully."}
+        	{status: true, message: "You Have Register Successfully."}
       	else
       		{status: false, message: @user.erros}
       	end
