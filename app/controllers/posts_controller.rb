@@ -1,11 +1,16 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   respond_to :html
 
   def index
-    @posts = Post.all
-    respond_with(@posts)
+    # @posts = Post.all
+    # respond_with(@posts)
+
+    @post = Post.new
+    @post.mediums.build
+    respond_with(@post)
   end
 
   def show

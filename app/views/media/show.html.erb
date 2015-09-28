@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Attachment:</strong>
+  <%= @medium.attachment %>
+</p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @medium.post %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @medium.comment %>
+</p>
+
+<%= link_to 'Edit', edit_medium_path(@medium) %> |
+<%= link_to 'Back', media_path %>

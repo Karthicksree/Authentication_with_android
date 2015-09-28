@@ -35,6 +35,8 @@ gem 'bootstrap-material-design'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem 'simple_form'
 
 gem 'devise'
 gem 'grape'

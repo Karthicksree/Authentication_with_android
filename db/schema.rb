@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925134013) do
+ActiveRecord::Schema.define(version: 20150928053619) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -23,6 +23,20 @@ ActiveRecord::Schema.define(version: 20150925134013) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "media", force: :cascade do |t|
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.integer  "post_id"
+    t.integer  "comment_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "media", ["comment_id"], name: "index_media_on_comment_id"
+  add_index "media", ["post_id"], name: "index_media_on_post_id"
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -48,6 +62,12 @@ ActiveRecord::Schema.define(version: 20150925134013) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "mobile_number"
+    t.integer  "gender"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
