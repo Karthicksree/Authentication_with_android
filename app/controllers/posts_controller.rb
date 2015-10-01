@@ -15,6 +15,12 @@ class PostsController < ApplicationController
 
   def show
     respond_with(@post)
+    # respond_to do |format|
+    #   format.html
+    #   format.pdf do
+    #     render pdf: "post",template: "posts/show.html.erb"
+    #   end
+    # end
   end
 
   def new

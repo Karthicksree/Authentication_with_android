@@ -37,6 +37,8 @@ gem 'bootstrap-material-design'
 # gem 'capistrano-rails', group: :development
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'simple_form'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 gem 'devise'
 gem 'grape'
