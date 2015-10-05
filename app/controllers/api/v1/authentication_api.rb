@@ -21,7 +21,7 @@ module API::V1
 	        else
             user.ensure_authentication_token
             user.save
-            {status: true, message: 'Signed in Successfully', token: user.authentication_token}
+            {status: true, message: 'Signed in Successfully', token: user.authentication_token, current_user: current_user}
 	        end
 	      else
           {status: false, message: "Invalid Email or Password."}
@@ -62,7 +62,7 @@ module API::V1
 
       delete '/signout' do
         user = User.find_by(authentication_token: params[:token])
-        user.reset_authentication_token!
+        user.update(authentication_token: nil)
         {status: true, message: 'Signed out Successfully'}
       end
 
