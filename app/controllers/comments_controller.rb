@@ -22,10 +22,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(comment_params)
-    # @comment = Comment.new(comment_params)
-    @comment.save
+    @comment = CommentStuff.new(params).create
     respond_with(@comment)
   end
 
@@ -45,6 +42,6 @@ class CommentsController < ApplicationController
     end
 
     def comment_params
-      params.require(:comment).permit(:body, :user_id)
+      params.require(:comment).permit(:body, :user_id, :post_id,mediums_attributes:[:attachment])
     end
 end

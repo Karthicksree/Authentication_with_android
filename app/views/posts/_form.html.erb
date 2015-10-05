@@ -1,4 +1,4 @@
-<%= simple_form_for(@post,html: {class: "form-horizontal"}) do |f| %>
+<%= simple_form_for(@post,html: {multipart: true,class: "form-horizontal"}) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -27,7 +27,7 @@
 
     <div class="form-group">
       <div class="col-lg-10">
-        <%= m.file_field :attachment,class: 'form-control', placeholder: "Image" %>
+        <%= m.file_field :attachment,multipart: true,class: 'form-control', placeholder: "Image" %>
       </div>
     </div>
   <% end %>

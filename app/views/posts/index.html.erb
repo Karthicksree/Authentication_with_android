@@ -12,14 +12,18 @@
   </thead> -->
 
   <tbody>
-    <% @posts = Post.all %>
+    <% @posts = Post.all.page(params[:page]).per(20).order('created_at DESC') %>
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
       </tr>
       <tr>
         <td><%= post.body %></td>
-        <td><%#= post.user %></td>
+        <td>
+          <% post.mediums.each do |image| %>
+            <%= image_tag image.attachment.url,width: "150px",height: "150px" %>
+          <% end %>
+        </td>
          <!--  <strong>comments:</strong>
           <%= post.comments.size %> -->
         <% if post.user.id == current_user.id %> 
@@ -27,6 +31,13 @@
           <td><%= link_to 'Edit', edit_post_path(post) %></td>
           <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
+      </tr>
+      <tr>
+        <td>
+          <% post.comments.each do |comment| %>
+            <%= comment.body %>
+          <% end %>
+        </td>
       </tr>
       <tr>
         <td>

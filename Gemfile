@@ -39,6 +39,7 @@ gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'simple_form'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'kaminari'
 
 gem 'devise'
 gem 'grape'
@@ -56,6 +57,8 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
 	gem 'sqlite3'
+  gem 'annotate'
+  gem 'sextant'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 

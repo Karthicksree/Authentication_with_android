@@ -19,7 +19,9 @@ module API::V1
 	      	unless user.valid_password?(password)
 	          {status: false, message: "Invalid Email or Password."}
 	        else
-	        	{status: true, message: "Signed in Successfully."}
+            user.ensure_authentication_token
+            user.save
+            {status: true, message: 'Signed in Successfully', token: user.authentication_token}
 	        end
 	      else
           {status: false, message: "Invalid Email or Password."}
@@ -33,18 +35,35 @@ module API::V1
 	      	requires :email, type: String
 	      	requires :password, type: String
 	      	requires :password_confirmation, type: String
+          requires :mobile_number, type: Integer
+          requires :gender, type: String
+          requires :photo, :type => Rack::Multipart::UploadedFile
 	      end
       end
 
       post 'signup' do
         Rails.logger.info "-------------#{params}"
+        params[:user][:photo] = ActionDispatch::Http::UploadedFile.new(params[:user][:photo])
       	@user = User.create(name: params[:user][:name], email: params[:user][:email],
-      	 password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
+      	 password: params[:user][:password], password_confirmation: params[:user][:password_confirmation],
+         mobile_number: params[:user][:mobile_number],gender: params[:user][:gender], photo: params[:user][:photo])
       	if @user.save
         	{status: true, message: "You Have Register Successfully."}
       	else
       		{status: false, message: @user.erros}
       	end
+      end
+
+      desc "signout a user"
+
+      params do
+        requires :token
+      end
+
+      delete '/signout' do
+        user = User.find_by(authentication_token: params[:token])
+        user.reset_authentication_token!
+        {status: true, message: 'Signed out Successfully'}
       end
 
   	end

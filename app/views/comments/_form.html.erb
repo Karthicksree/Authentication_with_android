@@ -2,7 +2,7 @@
   <% @post = post %>
 </div>
 
-<%= form_for([@post, @post.comments.build],html: {class: "form-horizontal"}) do |f| %>
+<%= simple_form_for([@post, @post.comments.build],html: {multipart: true,class: "form-horizontal"}) do |f| %>
   <% if @post.comments.build.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.comments.build.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -15,13 +15,21 @@
     </div>
   <% end %>
  <div class="field">
-    <%= f.hidden_field :post_id %>
+    <%= f.hidden_field :post_id,:value => @post.id %>
   </div>
   <div class="form-group">
     <div class="col-lg-10">
       <%= f.text_area :body,class: 'form-control', placeholder: "Comment" %>
     </div>
   </div>
+  <%= f.simple_fields_for :mediums, @post.comments.build.mediums.build do |m| %>
+
+    <div class="form-group">
+      <div class="col-lg-10">
+        <%= m.file_field :attachment,:multiple => true,class: 'form-control', placeholder: "Image" %>
+      </div>
+    </div>
+  <% end %>
   <div class="field">
      <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
