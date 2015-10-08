@@ -1,0 +1,19 @@
+
+.col.s12.m4.l3{
+	background-color: #26a69a;
+    height: 700px;
+  margin-top: 63px;
+}
+nav {
+	position: fixed;
+  background-color: #ffffff !important;
+}
+nav ul a{
+	color: #26a69a !important;
+}
+.row .col.s6 {
+     margin-top: 63px !important;
+}
+nav .brand-logo{
+	color: #26a69a !important;
+}

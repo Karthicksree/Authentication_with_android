@@ -10,7 +10,13 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require bootstrap-material-design
+ * require_tree .
+ *= require materialize.css
+ *= require style.css
+ *= require style-fullscreen.css
+ *= require prism.css
+ *= require custom.css
+ *= require perfect-scrollbar.css
  *= require_self
  */
+@import "materialize";

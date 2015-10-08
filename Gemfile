@@ -22,9 +22,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'bootstrap-sass', '3.2.0.2'
-
-gem 'bootstrap-material-design'
+# gem 'bootstrap-sass', '3.2.0.2'
+gem 'materialize-sass'
+#gem 'bootstrap-material-design'
 # gem 'material_design_lite-rails'
 
 # Use ActiveModel has_secure_password
