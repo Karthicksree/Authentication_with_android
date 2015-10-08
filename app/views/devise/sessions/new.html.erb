@@ -1,42 +1,58 @@
-<div class="authform">
-  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form',class: "form-horizontal"}) do |f| %>
-    <fieldset>
-     <%= devise_error_messages! %>
-        <legend>Sign in</legend>
-        <div class="form-group">
-            <div class="col-lg-10">
-              <%= f.email_field :email, :autofocus => true, class: 'form-control', placeholder: "Email" %>
-            </div>
-        </div>
-        <div class="form-group">
-          <div class="col-lg-10">
-            <%= f.password_field :password, class: 'form-control', placeholder:"Password" %>
+
+<div id="login-page" class="row">
+  <div class="col s12 z-depth-4 card-panel">
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form',class: "login-form"}) do |f| %>
+      <%= devise_error_messages! %>
+
+        <div class="row">
+          <div class="input-field col s12 center">
+          
+            <p class="center login-form-text">welcome</p>
           </div>
         </div>
-
-        <% if devise_mapping.rememberable? -%>
-          <div class="sample2">
-            <div class="checkbox checkbox-primary">
-              <label>
-                <%= f.check_box :remember_me %> Remember me
-              </label>
-            </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="mdi-social-person-outline prefix"></i>
+            <%= f.email_field :email, autofocus: true, label: false %>
+            <label for="username" class="center-align">Username</label>
           </div>
-        <% end -%>
-
-        <%- if devise_mapping.recoverable? %>
-            <%= link_to "Forgot password?", new_password_path(resource_name), class: 'right' %>
-          <% end -%>
-
-        <%- if devise_mapping.registerable? %>
-          <%= link_to 'Sign up', new_registration_path(resource_name), class: 'btn btn-primary btn-flat'  %>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="mdi-action-lock-outline prefix"></i>
+            <%= f.password_field :password,label: false %>
+            <label for="password" class="">Password</label>
+          </div>
+        </div>
+         <% if devise_mapping.rememberable? -%>
+          <div class="row">          
+          <div class="input-field col s12 m12 l12  login-text">
+              <%= f.check_box :remember_me ,id: "remember-me"%>
+              <label for="remember-me">Remember me</label>
+          </div>
+        </div>
         <% end -%>
         
-        
-   
-      <%= f.submit 'Sign in', :class => 'right btn btn-primary' %>
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.submit 'Sign in', class: "btn col s12" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6 m6 l6">
+            <p class="margin medium-small"><%- if devise_mapping.registerable? %>
+          <%= link_to 'Register Now!', new_registration_path(resource_name)  %>
+        <% end -%></p>
+          </div>
+          <div class="input-field col s6 m6 l6">
+            <%- if devise_mapping.recoverable? %>
+               <p class="margin right-align medium-small"><%= link_to "Forgot password?", new_password_path(resource_name) %></p>
+            <% end -%>
+          </div>          
+        </div>
+
+      <% end %>
+    </div>
       
-      
-     </fieldset>
-  <% end %>
-</div>
+  
+
