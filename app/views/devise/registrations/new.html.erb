@@ -9,13 +9,22 @@
         </div>
       </div>
 
-      <div class="row margin">
+
+       <div class="row margin">
         <div class="input-field col s12">
           <i class="mdi-social-person-outline prefix"></i>
-          <%= f.email_field :email, label: false %>
+          <%= f.text_field :name, label: false %>
           <label for="username" class="center-align">Username</label>
         </div>
-      </div>
+        </div>
+
+       <div class="row margin">
+        <div class="input-field col s12">
+          <i class="mdi-communication-email prefix"></i>
+          <%= f.email_field :email, label: false %>
+          <label for="username" class="center-align">Email</label>
+        </div>
+        </div>
 
       <div class="row margin">
         <div class="input-field col s12">
@@ -35,11 +44,11 @@
           <label for="password" class="">Password Confirmation</label>
         </div>
       </div>
-
+<!-- 
       <div class="row margin">
         <div class="input-field col s12">
           <i class="mdi-social-person-outline prefix"></i>
-          <%= f.number_field :mobile_number,:label=>false %>
+          <%#= f.number_field :mobile_number,:label=>false %>
           <label for="username" class="center-align">Mobile Number</label>
         </div>
       </div>
@@ -47,35 +56,33 @@
       <div class="row margin">
         <div class="input-field col s12">
           <i class="mdi-social-person-outline prefix"></i>
-          <%= f.label :gender %><br />
-          <%= f.radio_button :gender, "Male" %>
-          <%= f.label :gender, "Male", :value => "male" %>
-          <%= f.radio_button :gender, "Female"%>
-          <%= f.label :gender, "Female", :value => "female"%>
+          <%#= f.label :gender %><br />
+          <%#= f.radio_button :gender, "Male" %>
+          <%#= f.label :gender, "Male", :value => "male" %>
+          <%#= f.radio_button :gender, "Female"%>
+          <%#= f.label :gender, "Female", :value => "female"%>
         </div>
       </div>
-      <br/>
+      <br/> -->
 
-      <div class="row margin">
+<!--       <div class="row margin">
         <div class="input-field col s12">
           <i class="mdi-social-person-outline prefix"></i>
-          <%= f.file_field :photo, as: :file ,:label=>false %>
+          <%#= f.file_field :photo, as: :file ,:label=>false %>
           <label for="username" class="center-align">Photo</label>
         </div>
-      </div>
+      </div> -->
         
       <div class="row">
         <div class="input-field col s12">
           <%= f.submit 'Register', class: "btn col s12" %>
         </div>
+         <div class="input-field col s12">
+        <p class="margin center medium-small">Already have an account? <%= render "devise/shared/links" %></p>
+      </div>
       </div>
 
     <% end %>
-    <div class="row">
-      <div class="input-field col s6 m6 l6">
-        <p class="margin medium-small"><%= render "devise/shared/links" %></p>
-      </div>
-    </div>
   </div>
 </div>
 

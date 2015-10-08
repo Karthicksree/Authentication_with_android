@@ -5,12 +5,8 @@ class PostsController < ApplicationController
   respond_to :html
 
   def index
-    # @posts = Post.all
-    # respond_with(@posts)
-
-    @post = Post.new
-    @post.mediums.build
-    respond_with(@post)
+    @posts = Post.all
+    respond_with(@posts)
   end
 
   def show
@@ -25,6 +21,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @post.mediums.build
     respond_with(@post)
   end
 

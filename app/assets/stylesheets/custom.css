@@ -2,7 +2,6 @@
 .col.s12.m4.l3{
 	background-color: #26a69a;
     height: 700px;
-  margin-top: 63px;
 }
 nav {
 	position: fixed;
@@ -16,4 +15,15 @@ nav ul a{
 }
 nav .brand-logo{
 	color: #26a69a !important;
+}
+#sidebar{
+	 position: fixed;
+	 margin-top: 64px;
+}
+#content_right{
+	margin-left: 330px;
+	margin-top: 53px;
+}
+h1{
+	font-size: 2rem !important;
 }
