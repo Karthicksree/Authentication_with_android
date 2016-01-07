@@ -6,12 +6,13 @@
 nav {
 	position: fixed;
   background-color: #ffffff !important;
+  z-index: 1;
+}
+nav .brand-logo{
+	padding-left: 77px !important;
 }
 nav ul a{
 	color: #26a69a !important;
-}
-.row .col.s6 {
-     margin-top: 63px !important;
 }
 nav .brand-logo{
 	color: #26a69a !important;
@@ -26,4 +27,27 @@ nav .brand-logo{
 }
 h1{
 	font-size: 2rem !important;
+}
+h3{
+	font-size: 1.62rem !important;
+}
+.head_h3{
+	color: #08CAB7;
+}
+.cancel_myaccount{
+	font-size: 1.52rem
+}
+form p{
+	margin-left: 11px;
+	font-size: 13px;
+}
+.container{
+	    color: white;
+    margin-top: 20px !important;
+}
+.container img{
+	width: 70px;
+  height: 70px;
+  border-color: white;
+  border-radius: 50px;
 }

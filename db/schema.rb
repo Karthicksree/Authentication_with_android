@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151001111557) do
+ActiveRecord::Schema.define(version: 20151009024742) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20151001111557) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.integer  "mobile_number"
+    t.string   "mobile_number"
     t.integer  "gender"
     t.string   "authentication_token"
   end

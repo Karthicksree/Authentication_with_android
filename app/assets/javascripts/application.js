@@ -18,6 +18,6 @@
 //= require materialize.js
 //= require prism.js
 //= require perfect-scrollbar.min.js
-//= require plugins.js
+// require plugins.js
 // require bootstrap-sprockets
 //= require_tree .

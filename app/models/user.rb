@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :comments
   accepts_nested_attributes_for :devices
 
-  enum gender: [:male, :female]
+  enum gender: [:Male, :Female]
 
   before_save :ensure_authentication_token
 

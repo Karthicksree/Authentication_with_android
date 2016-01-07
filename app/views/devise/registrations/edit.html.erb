@@ -1,59 +1,84 @@
-<div class="authform">
-  <h3>Edit <%= resource_name.to_s.humanize %></h3>
-  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :role => 'form'}) do |f| %>
-    <%= devise_error_messages! %>
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
-    </div>
-<!--     <fieldset> -->
-      <p>Leave these fields blank if you don't want to change your password.</p>
-      <div class="form-group">
-        <%= f.label :password %>
-        <%= f.password_field :password, :autocomplete => 'off', class: 'form-control' %>
+<div class="row">
+  <div class="col s12">
+    <h3 class="head_h3">Edit Your Profile</h3>
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :role => 'form'}) do |f| %>
+      <%= devise_error_messages! %>
+    
+      <div class="row">
+         <div class="input-field col s6">
+          <%= f.text_field :name,:autofocus => true %>
+          <label for="name">Name</label>
+        </div>
+
+        <div class="input-field col s6">
+          <%= f.email_field :email %>
+          <label for="email">Email</label>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+        </div>
       </div>
-      <div class="form-group">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <div class="row">    
+        <p>Leave password & password confirmation fields blank if you don't want to change your password.</p>
+        <div class="input-field col s6">
+          <%= f.password_field :password, :autocomplete => 'off' %>
+          <label for="password">Password</label>
+        </div>
+
+        <div class="input-field col s6">
+          <%= f.password_field :password_confirmation, :autocomplete => 'off' %>
+          <label for="password_confirmation">Password Confirmation</label>
+        </div>
       </div>
-    <!-- </fieldset> -->
-    <!-- <fieldset> -->
+
+      <div class="row">
       <p>You must enter your current password to make changes.</p>
-      <div class="form-group">
-        <%= f.label :current_password %>
-        <%= f.password_field :current_password, class: 'form-control' %>
+        <div class="input-field col s6">
+          <%= f.password_field :current_password %>
+          <label for="current_password">Current Password</label>
+        </div>
+
+        <div class="input-field col s6">
+          <%= f.text_field :mobile_number %>
+          <label for="mobile_number">Mobile Number</label>
+        </div>
       </div>
 
-       <div class="field">
-    <%= f.label :mobile_number %><br />
-    <%= f.input :mobile_number,:label=>false %>
-  </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <%= f.label :gender %><br />
+          <%= f.radio_button :gender, "Male" %>
+          <%= f.label :gender, "Male", :value => "male" %>
+          <%= f.radio_button :gender, "Female"%>
+          <%= f.label :gender, "Female", :value => "female"%>
+        </div>
 
-  <div class="field">
-    <%= f.label :gender %><br />
-    <%= f.radio_button :gender, "Male" %>
-    <%= f.label :gender, "Male", :value => "male" %>
-    <%= f.radio_button :gender, "Female"%>
-    <%= f.label :gender, "Female", :value => "female"%>
-  </div>
+        
+        <div class="file-field input-field col s6">
+          <div class="btn">
+            <span>File</span>
+            <%= f.file_field :photo %>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <%= f.submit 'Update', :class => 'btn btn-primary' %>
+       <!--  </div> -->
 
-  <div class="field">
-    <%= f.label :photo %><br />
-    <%= f.input :photo, as: :file ,:input_html => { :class => "form-control" },:label=>false %>
+        <!-- <div class="input-field col s6"> -->
+          <!-- <span class="cancel_myaccount">Cancel Account</span> -->
+          <!-- <p>Unhappy? We'll be sad to see you go.</p> -->
+          <%#= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-default' %>
+        </div>
+      <!-- </div> -->
+    <% end %>
   </div>
-    <!-- </fieldset> -->
-    <%= f.submit 'Update', :class => 'right btn btn-primary' %>
-  <% end %>
 </div>
-<div class="authform">
-<h3>Cancel Account</h3>
-<p>Unhappy? We'll be sad to see you go.</p>
-<%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'right btn btn-default' %>
-</div>
+
+
+

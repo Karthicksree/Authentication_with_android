@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments  
   end
+  post 'posts/get-token' => 'posts#get_token'
 
   # You can have the root of your site routed with "root"
   # root 'posts#index'
