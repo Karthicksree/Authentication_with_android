@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Post:
+  fields:
+    default: title, body, user_id
+    form: title, body, user_id
+  relationships: comments, mediums
+  application: Application

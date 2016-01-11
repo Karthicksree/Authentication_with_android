@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Medium:
+  fields:
+    default: attachment_file_name, attachment_file_size, post_id, comment_id
+    form: attachment_file_name, attachment_file_size, post_id, comment_id
+  relationships: 
+  application: Application
