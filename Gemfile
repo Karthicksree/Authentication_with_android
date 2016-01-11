@@ -46,6 +46,7 @@ gem 'devise'
 gem 'grape'
 gem 'grape-rabl', '~> 0.2.2'
 gem 'rabl', '~> 0.10.1'
+gem "administrate", "~> 0.1.2"
 
 group :production do
 	gem 'pg'
