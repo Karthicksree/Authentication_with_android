@@ -30,7 +30,10 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.save
+    if @post.save
+      gflash :success => { :value => "Post has been created!" }
+    end
+
     respond_with(@post)
   end
 

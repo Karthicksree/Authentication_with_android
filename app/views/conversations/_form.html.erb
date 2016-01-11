@@ -1,0 +1,24 @@
+<h3>Compose a Message</h3>
+<%= form_for :conversation, url: :conversations, html: { class: "" } do |f| %>
+  <div class="row">
+    <div class="input-field col s6">
+      <%= f.select :recipients, @users.all.collect {|p| [ p.name, p.id ] }, {}, { multiple: true , class: " recipient_select form-control" } %>
+      <label for="recipients">Recipients</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <%= f.text_field :subject %>
+      <label for="subject">Subject</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <%= f.text_area :body, class: "materialize-textarea", rows: 4  %>
+      <label for="message">Message</label>
+    </div>
+  </div>
+
+    <%= f.submit "Send Message", class: "btn btn-success" %>
+
+<% end %>

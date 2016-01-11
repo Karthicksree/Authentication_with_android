@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/emn178/gritter.git
+  revision: b24efb2ef3309013e95ffc9947806c9110004237
+  specs:
+    gritter (1.1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -53,6 +59,11 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (8.2.1)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -83,6 +94,8 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.8)
     execjs (2.6.0)
+    foreigner (1.7.4)
+      activerecord (>= 3.0.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     grape (0.14.0)
@@ -118,6 +131,10 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    mailboxer (0.13.0)
+      carrierwave (>= 0.5.8)
+      foreigner (>= 0.9.1)
+      rails (>= 3.2.0)
     materialize-sass (0.97.5)
       sass (~> 3.3)
     mime-types (2.99)
@@ -244,9 +261,11 @@ DEPENDENCIES
   devise
   grape
   grape-rabl (~> 0.2.2)
+  gritter!
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
+  mailboxer
   materialize-sass
   paperclip
   pg

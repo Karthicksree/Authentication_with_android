@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'bootstrap-sass', '3.2.0.2'
 gem 'materialize-sass'
+gem 'gritter', :git => 'https://github.com/emn178/gritter.git'
 #gem 'bootstrap-material-design'
 # gem 'material_design_lite-rails'
 
@@ -46,6 +47,7 @@ gem 'devise'
 gem 'grape'
 gem 'grape-rabl', '~> 0.2.2'
 gem 'rabl', '~> 0.10.1'
+gem 'mailboxer'
 
 group :production do
 	gem 'pg'

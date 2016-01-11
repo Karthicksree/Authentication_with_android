@@ -51,3 +51,6 @@ form p{
   border-color: white;
   border-radius: 50px;
 }
+#sidebar a {
+	color: #fff;
+}
